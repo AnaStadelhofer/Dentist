@@ -29,7 +29,20 @@ namespace Controllers
             {
                 procedimento.Descricao = Descricao;
             }
+            procedimento.Preco = Preco;
 
+            return procedimento;
+        }
+
+        public static List<Procedimento> VisualizarProcedimento()
+        {
+            return Procedimento.GetProcedimentos();
+        }
+
+        public static Procedimento DeleteProcedimento(int Id)
+        {
+            Procedimento procedimento = GetProcedimento(Id);
+            Procedimento.RemoverProcedimento(procedimento);
             return procedimento;
         }
 

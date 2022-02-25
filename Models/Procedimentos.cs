@@ -24,6 +24,8 @@ namespace Models
             this.Id = Id;
             this.Descricao = Descricao;
             this.Preco = Preco;
+
+            Procedimentos.Add(this);
         }
 
         public override bool Equals(object obj)
@@ -44,9 +46,9 @@ namespace Models
 
         public override string ToString()
         {
-            return $"ID: {this.Id}"
-                + $"\n Descrição: {this.Descricao}"
-                + $"\n Preco: {this.Preco}";
+            return $"\n Id: {this.Id}" +
+                   $"\n Descrição: {this.Descricao}" + 
+                   $"\n Preço: {this.Preco}";
         }
 
         public static List<Procedimento> GetProcedimentos()

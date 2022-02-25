@@ -44,6 +44,7 @@ namespace ConsultorioOdontologico
 
         public static void Main(string[] args)
         {
+            ProcedimentoControllers.InsertProcedimento("AAA", 1000);
             EspecialidadeController.InsertEspecialidade("Descricao", "Tarefas");
             DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
             PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
@@ -143,6 +144,10 @@ namespace ConsultorioOdontologico
             Console.WriteLine("| 18       | Alterar Especialidade   |");
             Console.WriteLine("| 19       | Excluir Especialidade   |");
             Console.WriteLine("| 20       | Visualizar Especialidade|");
+            Console.WriteLine("| 21       | Incluir Procedimento    |");
+            Console.WriteLine("| 22       | Alterar Procedimento    |");
+            Console.WriteLine("| 23       | Excluir Procedimento    |");
+            Console.WriteLine("| 24       | Visualizar Procedimento |");
             Console.WriteLine("+------------------------------------+");
 
             int opt = 0;
@@ -248,22 +253,98 @@ namespace ConsultorioOdontologico
                         }
                         case 17:
                         {
+                            try
+                            {
                             EspecialidadeViews.InserirEspecialidade();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de inserir Especialidades");
+                            }
                             break;
                         }
                         case 18:
                         {
+                            try
+                            {
                             EspecialidadeViews.AlterarEspecialidade();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de alterar Especialidades");
+                            }
                             break;
                         }
                         case 19:
                         {
+                            try
+                            {
                             EspecialidadeViews.ExcluirEspecialidade();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de excluir Especialidades");
+                            }
                             break;
                         }
                         case 20:
                         {
+                            try
+                            {
                             EspecialidadeViews.ListarEspecialidades();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de listar Especialidades");
+                            }
+                            break;
+                        }
+                        case 21:
+                        {
+                            try
+                            {
+                            ProcedimentoViews.InserirProcedimentos();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de inserir Procedimento");
+                            }
+                            break;
+                        }
+                        case 22:
+                        {
+                            try
+                            {
+                            ProcedimentoViews.AlterarProcedimentos();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de alterar Procedimento");
+                            }
+                            break;
+                        }
+                        case 23:
+                        {
+                            try
+                            {
+                            ProcedimentoViews.ExcluirProcedimentos();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de excluir Procedimento");
+                            }
+                            break;
+                        }
+                        case 24:
+                        {
+                            try
+                            {
+                            ProcedimentoViews.ListarProcedimentos();
+                            }
+                            catch(Exception)
+                            {
+                                throw new Exception ("Erro ao chamar a função de listar Procedimento");
+                            }
                             break;
                         }
                         default:
