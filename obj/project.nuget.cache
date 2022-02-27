@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KJ/XdQ2p3vksABU9+cFFyD5wiRqdqyCD6bUv/7QRYlAxuYCYFTJPD6vbQjWIlGNwiT1UjnQc1tiTIKjik1TWyA==",
+  "dgSpecHash": "D2CMMUDquW97Y9CeUN8DWPfPUlz9dzg8vdRUfkga1vvqM9bliWwBqQ2Bv9K5NgREAUg74/18QxKsrXJ80zZWWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
+  "projectFilePath": "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ana.stadelhofer\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512"
   ],
   "logs": []
 }

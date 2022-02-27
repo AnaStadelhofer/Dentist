@@ -15,16 +15,14 @@ namespace Models
         public int IdSala { set; get; }
         public Sala Sala { get; }
         public DateTime Data { set; get; }
-        public string Procedimento { set; get; }
         public bool Confirmado { set; get; }
 
         public Agendamento(
             int IdPaciente,
             int IdDentista,
             int IdSala,
-            DateTime Data,
-            string Procedimento
-        ) : this(++ID, IdPaciente, IdDentista, IdSala, Data, Procedimento)
+            DateTime Data
+        ) : this(++ID, IdPaciente, IdDentista, IdSala, Data)
         {}
 
         private Agendamento(
@@ -32,8 +30,7 @@ namespace Models
             int IdPaciente,
             int IdDentista,
             int IdSala,
-            DateTime Data,
-            string Procedimento
+            DateTime Data
         )
         {
             this.Id = Id;
@@ -44,19 +41,18 @@ namespace Models
             this.IdSala = IdSala;
             this.Sala = Sala.GetSalas().Find(Sala => Sala.Id == IdSala);
             this.Data = Data;
-            this.Procedimento = Procedimento;
 
             Agendamentos.Add(this);
         }
 
         public override string ToString()
         {
-            return $"ID: {this.Id}"
+            return "\n\n======================= \n" 
+                + $"ID: {this.Id}"
                 + $"\nPaciente: {this.Paciente.Nome}"
                 + $"\nDentista: {this.Dentista.Nome}"
                 + $"\nSala: {this.Sala.Numero}"
                 + $"\nData: {this.Data}"
-                + $"\nProcedimento: {this.Procedimento}"
                 + $"\nConfirmado: {(this.Confirmado ? "Sim" : "Não")}";
         }
 

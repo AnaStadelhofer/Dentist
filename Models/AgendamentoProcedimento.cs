@@ -9,6 +9,7 @@ namespace Models
         private static List<AgendamentoProcedimento> AgendamentosProcedimentos = new List<AgendamentoProcedimento>();
         public int Id {get; set;}
         public int IdAgendamento {get; set;}
+        public Agendamento Agendamento {get;}
         public int IdProcedimento {get; set;}
 
         public AgendamentoProcedimento(int IdAgendamento,
@@ -29,7 +30,8 @@ namespace Models
 
         public override string ToString()
         {
-            return "\n Id: " + this.Id +
+            return "\n\n =======================" +
+                   "\n Id: " + this.Id +
                    "\n Id Agendamento: " + this.IdAgendamento +
                    "\n Id Procedimento: " + this.IdProcedimento;
         }

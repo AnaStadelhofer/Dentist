@@ -1,6 +1,7 @@
 using System;
 using Controllers;
 using Models;
+using Views;
 
 namespace Views
 {
@@ -10,6 +11,7 @@ namespace Views
         {
             Console.WriteLine("\n Informe o Id do Agendamento: ");
             int IdAgendamento = Convert.ToInt32(Console.ReadLine());
+            ProcedimentoViews.ListarProcedimentos();
             Console.WriteLine("\n Informe o Id do Procedimento: ");
             int IdProcedimento = Convert.ToInt32(Console.ReadLine());
             AgendamentoProcedimentoControllers.InsertAgendamentoProcedimento(IdAgendamento, IdProcedimento);

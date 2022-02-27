@@ -46,13 +46,13 @@ namespace ConsultorioOdontologico
         {   
             
             
-            EspecialidadeController.InsertEspecialidade("Descricao", "Tarefas");
+            EspecialidadeController.InsertEspecialidade("Arrancador de dente", "Arrancar dente com alicate");
             DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
             PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
             SalaController.IncluirSala("B135", "RaioX");
-            ProcedimentoControllers.InsertProcedimento("AAA", 1000);
-            SalaController.IncluirSala("numero sala", "equip sals");
-            AgendamentoController.InserirAgendamento(1, 1, 1, Convert.ToDateTime("2023-01-01"), "pro");
+            ProcedimentoControllers.InsertProcedimento("Arrancar dente", 1000);
+            SalaController.IncluirSala("101", "Extração");
+            AgendamentoController.InserirAgendamento(1, 1, 1, Convert.ToDateTime("2023-01-01"));
             AgendamentoProcedimentoControllers.InsertAgendamentoProcedimento(1, 1);
             //MenuPrincipal();
 
@@ -66,10 +66,12 @@ namespace ConsultorioOdontologico
                 try
                 {
                     Auth.Login(Email, Senha);
-                    if (Auth.Dentista != null) {
+                    if (Auth.Dentista != null) 
+                    {
                         MenuPrincipal();
                     }
-                    if (Auth.Paciente != null) {
+                    if (Auth.Paciente != null) 
+                    {
                         MenuPaciente();
                     }
                     Auth.Logout();
@@ -78,7 +80,8 @@ namespace ConsultorioOdontologico
                 {
                     Console.WriteLine(err);
                 }
-            } while (!Auth.isLogeed);
+            } 
+            while (!Auth.isLogeed);
         }
 
         public static void MenuPaciente()
@@ -119,7 +122,8 @@ namespace ConsultorioOdontologico
                         Console.WriteLine("Operação inválida");
                         break;
                 }  
-            } while(opt != 0);
+            } 
+            while(opt != 0);
         }
 
         public static void MenuPrincipal()
@@ -172,7 +176,8 @@ namespace ConsultorioOdontologico
                 {
                     opt = 99;
                 }
-                try{
+                try
+                {
                     switch (opt)
                     {
                         case 0:
@@ -191,7 +196,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            DentistaView.InserirDentista();
+                                DentistaView.InserirDentista();
                             }
                             catch(Exception)
                             {
@@ -203,7 +208,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            PacienteView.InserirPaciente();
+                                PacienteView.InserirPaciente();
                             }
                             catch(Exception)
                             {
@@ -215,7 +220,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            SalaView.InserirSala();
+                                SalaView.InserirSala();
                             }
                             catch(Exception)
                             {
@@ -227,7 +232,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoView.InserirAgendamento();
+                                AgendamentoView.InserirAgendamento();
                             }
                             catch(Exception)
                             {
@@ -239,7 +244,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            DentistaView.AlterarDentista();
+                                DentistaView.AlterarDentista();
                             }
                             catch(Exception)
                             {
@@ -251,7 +256,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            PacienteView.AlterarPaciente();
+                                PacienteView.AlterarPaciente();
                             }
                             catch(Exception)
                             {
@@ -263,7 +268,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            SalaView.AlterarSala();
+                                SalaView.AlterarSala();
                             }
                             catch(Exception)
                             {
@@ -275,7 +280,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoView.AlterarAgendamento();
+                                AgendamentoView.AlterarAgendamento();
                             }
                             catch(Exception)
                             {
@@ -287,7 +292,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            DentistaView.ExcluirDentista();
+                                DentistaView.ExcluirDentista();
                             }
                             catch(Exception)
                             {
@@ -299,7 +304,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            PacienteView.ExcluirPaciente();
+                                PacienteView.ExcluirPaciente();
                             }
                             catch(Exception)
                             {
@@ -311,7 +316,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            SalaView.ExcluirSala();
+                                SalaView.ExcluirSala();
                             }
                             catch(Exception)
                             {
@@ -323,7 +328,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoView.ExcluirAgendamento();
+                                AgendamentoView.ExcluirAgendamento();
                             }
                             catch(Exception)
                             {
@@ -335,7 +340,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            DentistaView.ListarDentistas();
+                                DentistaView.ListarDentistas();
                             }
                             catch(Exception)
                             {
@@ -347,7 +352,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            PacienteView.ListarPacientes();
+                                PacienteView.ListarPacientes();
                             }
                             catch(Exception)
                             {
@@ -359,7 +364,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            SalaView.ListarSalas();
+                                SalaView.ListarSalas();
                             }
                             catch(Exception)
                             {
@@ -371,7 +376,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoView.ListarAgendamentos();
+                                AgendamentoView.ListarAgendamentos();
                             }
                             catch(Exception)
                             {
@@ -383,7 +388,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            EspecialidadeViews.InserirEspecialidade();
+                                EspecialidadeViews.InserirEspecialidade();
                             }
                             catch(Exception)
                             {
@@ -395,7 +400,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            EspecialidadeViews.AlterarEspecialidade();
+                                EspecialidadeViews.AlterarEspecialidade();
                             }
                             catch(Exception)
                             {
@@ -407,7 +412,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            EspecialidadeViews.ExcluirEspecialidade();
+                                EspecialidadeViews.ExcluirEspecialidade();
                             }
                             catch(Exception)
                             {
@@ -419,7 +424,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            EspecialidadeViews.ListarEspecialidades();
+                                EspecialidadeViews.ListarEspecialidades();
                             }
                             catch(Exception)
                             {
@@ -431,7 +436,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            ProcedimentoViews.InserirProcedimentos();
+                                ProcedimentoViews.InserirProcedimentos();
                             }
                             catch(Exception)
                             {
@@ -443,7 +448,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            ProcedimentoViews.AlterarProcedimentos();
+                                ProcedimentoViews.AlterarProcedimentos();
                             }
                             catch(Exception)
                             {
@@ -455,7 +460,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            ProcedimentoViews.ExcluirProcedimentos();
+                                ProcedimentoViews.ExcluirProcedimentos();
                             }
                             catch(Exception)
                             {
@@ -467,7 +472,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            ProcedimentoViews.ListarProcedimentos();
+                                ProcedimentoViews.ListarProcedimentos();
                             }
                             catch(Exception)
                             {
@@ -479,7 +484,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoProcedimentoViews.InserirAgendamentoProcedimento();
+                                AgendamentoProcedimentoViews.InserirAgendamentoProcedimento();
                             }
                             catch(Exception)
                             {
@@ -491,7 +496,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoProcedimentoViews.AlterarAgendamentoProcedimento();
+                                AgendamentoProcedimentoViews.AlterarAgendamentoProcedimento();
                             }
                             catch(Exception)
                             {
@@ -503,7 +508,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoProcedimentoViews.ExlcuirAgendamentoProcedimento();
+                                AgendamentoProcedimentoViews.ExlcuirAgendamentoProcedimento();
                             }
                             catch(Exception)
                             {
@@ -515,7 +520,7 @@ namespace ConsultorioOdontologico
                         {
                             try
                             {
-                            AgendamentoProcedimentoViews.ListarAgendamentoProcedimento();
+                                AgendamentoProcedimentoViews.ListarAgendamentoProcedimento();
                             }
                             catch(Exception)
                             {

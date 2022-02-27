@@ -11,7 +11,8 @@ namespace Models
 
         public override string ToString()
         {
-            return $"ID: {this.Id}"
+            return "\n\n======================= \n" 
+                + $"ID: {this.Id}"
                 + $"\nNome: {this.Nome}"
                 + $"\nC.P.F.: {this.Cpf}"
                 + $"\nTelefone: {this.Fone}"

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\ConsultorioOdontologico.csproj": {}
+    "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\ConsultorioOdontologico.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\ConsultorioOdontologico.csproj": {
+    "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\ConsultorioOdontologico.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
+        "projectUniqueName": "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
         "projectName": "ConsultorioOdontologico",
-        "projectPath": "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
-        "packagesPath": "C:\\Users\\ana.stadelhofer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ana.stadelhofer\\Documents\\Java\\Donet\\DentTwo\\Dentist\\Dentist\\obj\\",
+        "projectPath": "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\ConsultorioOdontologico.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\OneDrive\\Documentos\\Estudos\\Csharp\\Faculdade\\Dentist\\Dentist\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ana.stadelhofer\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

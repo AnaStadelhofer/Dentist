@@ -1,6 +1,7 @@
 using System;
 using Controllers;
 using Models;
+using Views;
 
 namespace Views
 {
@@ -48,16 +49,14 @@ namespace Views
             {
                 throw new Exception("Data inválida.");
             }
-
-            Console.WriteLine("Digite os Procedimentos do Agendamento: ");
-            string Procedimentos = Console.ReadLine();
+            
+            AgendamentoProcedimentoViews.InserirAgendamentoProcedimento();
 
             AgendamentoController.InserirAgendamento(
                 IdPaciente,
                 IdDentista,
                 IdSala,
-                Data,
-                Procedimentos
+                Data
             );
 
         }
@@ -95,14 +94,10 @@ namespace Views
                 throw new Exception("Data inválida.");
             }
 
-            Console.WriteLine("Digite os Procedimentos do Agendamento: ");
-            string Procedimentos = Console.ReadLine();
-
             AgendamentoController.AlterarAgendamento(
                 Id,
                 IdSala,
-                Data,
-                Procedimentos
+                Data
             );
 
         }
