@@ -49,11 +49,7 @@ namespace ConsultorioOdontologico
             EspecialidadeController.InsertEspecialidade("Arrancador de dente", "Arrancar dente com alicate");
             DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
             PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
-            SalaController.IncluirSala("B135", "RaioX");
-            ProcedimentoControllers.InsertProcedimento("Arrancar dente", 1000);
-            SalaController.IncluirSala("101", "Extração");
-            AgendamentoController.InserirAgendamento(1, 1, 1, Convert.ToDateTime("2023-01-01"));
-            AgendamentoProcedimentoControllers.InsertAgendamentoProcedimento(1, 1);
+            
             //MenuPrincipal();
 
             do
