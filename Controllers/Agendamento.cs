@@ -44,7 +44,7 @@ namespace Controllers
             IEnumerable<Agendamento> agendamentos =
                 from Agendamento in Agendamento.GetAgendamentos()
                     where Agendamento.Data == Data 
-                        && Agendamento.IdDentista == IdDentista
+                        && Agendamento.DentistaId == IdDentista
                         && Agendamento.Id != IdAtual
                     select Agendamento;
 
@@ -68,14 +68,14 @@ namespace Controllers
 
             if (GetConflito(
                 agendamento.Id,
-                agendamento.IdDentista,
+                agendamento.DentistaId,
                 Data
             ))
             {
                 throw new Exception("Já existe um agendamento para este horário");
             }
 
-            agendamento.IdSala = IdSala;
+            agendamento.SalaId = IdSala;
             agendamento.Data = Data;
             
             return agendamento;
@@ -113,14 +113,14 @@ namespace Controllers
         public static IEnumerable<Agendamento> GetAgendamentosPorPaciente(int IdPaciente)
         {
             return Agendamento.GetAgendamentos()
-                .Where(Agendamento => Agendamento.IdPaciente == IdPaciente);
+                .Where(Agendamento => Agendamento.PacienteId == IdPaciente);
         }
 
         public static Agendamento ConfirmarAgendamento(int Id)
         {
             Agendamento agendamento = GetAgendamento(Id);
 
-            if (agendamento.IdPaciente != Auth.Paciente.Id)
+            if (agendamento.PacienteId != Auth.Paciente.Id)
             {
                 throw new Exception("Não é possível confirmar esse agendamento");
             }

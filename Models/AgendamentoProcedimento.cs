@@ -1,39 +1,38 @@
 using System;
 using System.Collections.Generic;
+using Repository;
+using System.Linq;
 
 namespace Models
 {
     public class AgendamentoProcedimento
     {
-        public static int ID = 0;
-        private static List<AgendamentoProcedimento> AgendamentosProcedimentos = new List<AgendamentoProcedimento>();
         public int Id {get; set;}
-        public int IdAgendamento {get; set;}
+        
+        public int AgendamentoId {get; set;}
         public Agendamento Agendamento {get;}
-        public int IdProcedimento {get; set;}
+        public int ProcedimentoId {get; set;}
 
-        public AgendamentoProcedimento(int IdAgendamento,
-                                       int IdProcedimento)
-                                       :this(++ID, IdAgendamento, IdProcedimento)
+        public AgendamentoProcedimento()
         {}
 
-        private AgendamentoProcedimento(int Id,
-                                        int IdAgendamento,
-                                        int IdProcedimento)
+        public AgendamentoProcedimento(int AgendamentoId,
+                                        int ProcedimentoId)
         {
-            this.Id = Id;
-            this.IdAgendamento = IdAgendamento;
-            this.IdProcedimento = IdProcedimento;
+            this.AgendamentoId = AgendamentoId;
+            this.ProcedimentoId = ProcedimentoId;
 
-            AgendamentosProcedimentos.Add(this);
+            Context db = new Context();
+            db.AgendamentosProcedimentos.Add(this);
+            db.SaveChanges();
         }
 
         public override string ToString()
         {
             return "\n\n =======================" +
                    "\n Id: " + this.Id +
-                   "\n Id Agendamento: " + this.IdAgendamento +
-                   "\n Id Procedimento: " + this.IdProcedimento;
+                   "\n Id Agendamento: " + this.AgendamentoId +
+                   "\n Id Procedimento: " + this.ProcedimentoId;
         }
 
         public override bool Equals(object obj)
@@ -55,12 +54,14 @@ namespace Models
 
         public static List<AgendamentoProcedimento> GetAgendamentoProcedimentos()
         {
-            return AgendamentosProcedimentos;
+            Context db = new Context();
+            return (from AgendamentoProcedimento in db.AgendamentosProcedimentos select AgendamentoProcedimento).ToList();
         }
 
         public static void RemoverAgendamentoProcedimento(AgendamentoProcedimento agendamentoProcedimento)
         {
-            AgendamentosProcedimentos.Remove(agendamentoProcedimento);
+            Context db = new Context();
+            db.AgendamentosProcedimentos.Remove(agendamentoProcedimento);
         }
 
     }

@@ -16,8 +16,7 @@ namespace Models
         {
         }
 
-        public Procedimento(
-                            string Descricao,
+        public Procedimento(string Descricao,
                             double Preco)
         {
             this.Descricao = Descricao;

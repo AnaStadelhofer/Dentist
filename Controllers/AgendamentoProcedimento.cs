@@ -23,8 +23,8 @@ namespace Controllers
                 AgendamentoController.GetAgendamento(IdAgendamento);
                 ProcedimentoControllers.GetProcedimento(IdProcedimento);
                 
-                agendamentoProcedimento.IdAgendamento = IdAgendamento;
-                agendamentoProcedimento.IdProcedimento = IdProcedimento;
+                agendamentoProcedimento.AgendamentoId = IdAgendamento;
+                agendamentoProcedimento.ProcedimentoId = IdProcedimento;
 
                 return agendamentoProcedimento;
         }

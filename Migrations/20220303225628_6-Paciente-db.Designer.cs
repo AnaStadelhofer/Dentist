@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
 namespace ConsultorioOdontologico.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220303225628_6-Paciente-db")]
+    partial class _6Pacientedb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,70 +31,18 @@ namespace ConsultorioOdontologico.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("DentistaId")
+                    b.Property<int>("IdDentista")
                         .HasColumnType("int");
 
-                    b.Property<int>("PacienteId")
+                    b.Property<int>("IdPaciente")
                         .HasColumnType("int");
 
-                    b.Property<int>("SalaId")
+                    b.Property<int>("IdSala")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Agendamentos");
-                });
-
-            modelBuilder.Entity("Models.AgendamentoProcedimento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("AgendamentoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProcedimentoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AgendamentosProcedimentos");
-                });
-
-            modelBuilder.Entity("Models.Dentista", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Cpf")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("EspecialidadeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Fone")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Registro")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<double>("Salario")
-                        .HasColumnType("double");
-
-                    b.Property<string>("Senha")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Dentistas");
                 });
 
             modelBuilder.Entity("Models.Especialidade", b =>

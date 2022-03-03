@@ -6,7 +6,6 @@ namespace Models
 {
     public class Sala
     {
-
         public int Id { set; get; }
         public string Numero { set; get; }
         public string Equipamentos { set; get; }
