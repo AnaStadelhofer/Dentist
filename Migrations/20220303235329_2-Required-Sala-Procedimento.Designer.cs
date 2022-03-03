@@ -8,8 +8,8 @@ using Repository;
 namespace ConsultorioOdontologico.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220303001433_1-Initial-Sala")]
-    partial class _1InitialSala
+    [Migration("20220303235329_2-Required-Sala-Procedimento")]
+    partial class _2RequiredSalaProcedimento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,6 +18,24 @@ namespace ConsultorioOdontologico.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Models.Procedimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<double>("Preco")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Procedimentos");
+                });
+
             modelBuilder.Entity("Models.Sala", b =>
                 {
                     b.Property<int>("Id")
@@ -25,9 +43,11 @@ namespace ConsultorioOdontologico.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Equipamentos")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Numero")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");

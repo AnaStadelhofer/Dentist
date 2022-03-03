@@ -3,29 +3,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ConsultorioOdontologico.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class _3Especialidade : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Salas",
+                name: "Especialidades",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Numero = table.Column<string>(nullable: true),
-                    Equipamentos = table.Column<string>(nullable: true)
+                    Descricao = table.Column<string>(nullable: false),
+                    Tarefas = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Salas", x => x.Id);
+                    table.PrimaryKey("PK_Especialidades", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Salas");
+                name: "Especialidades");
         }
     }
 }

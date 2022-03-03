@@ -1,17 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel.DataAnnotations;
 using Repository;
+using System.ComponentModel.DataAnnotations;
+
 namespace Models
 {
     public class Sala
     {
 
         public int Id { set; get; }
+        [Required]
         public string Numero { set; get; }
+        [Required]
         public string Equipamentos { set; get; }
         
-        public Sala() { }
+        public Sala() 
+        {}
         
         public Sala(
             string Numero,

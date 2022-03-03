@@ -8,8 +8,8 @@ using Repository;
 namespace ConsultorioOdontologico.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220303001208_InitialDB")]
-    partial class InitialDB
+    [Migration("20220303234658_1-Sala-Procedimento")]
+    partial class _1SalaProcedimento
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,6 +17,23 @@ namespace ConsultorioOdontologico.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Models.Procedimento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<double>("Preco")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Procedimentos");
+                });
 
             modelBuilder.Entity("Models.Sala", b =>
                 {
