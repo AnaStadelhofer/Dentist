@@ -43,7 +43,7 @@ namespace Models
             string Registro,
             double Salario,
             int IdEspecialidade
-        ) : base(Id, Nome, Cpf, Fone, Email, Senha)
+        ) : base(Nome, Cpf, Fone, Email, Senha)
         {
             this.Registro = Registro;
             this.Salario = Salario;
