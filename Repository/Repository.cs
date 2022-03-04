@@ -11,6 +11,8 @@ namespace Repository
         public DbSet<Dentista> Dentistas { get; set; }
 
         public DbSet<Agendamento> Agendamentos { get; set; }
+
+        public DbSet<AgendamentoProcedimento> AgendamentosProcedimentos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseMySql("Server=localhost;User Id=root;Database=dentist");
     }
