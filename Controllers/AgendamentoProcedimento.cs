@@ -7,24 +7,24 @@ namespace Controllers
 {
     public class AgendamentoProcedimentoControllers
     {
-        public static AgendamentoProcedimento InsertAgendamentoProcedimento(int IdAgendamento,
-                                                                            int IdProcedimento)
+        public static AgendamentoProcedimento InsertAgendamentoProcedimento(int AgendamentoId,
+                                                                            int ProcedimentoId)
         {
-            AgendamentoController.GetAgendamento(IdAgendamento);
-            ProcedimentoControllers.GetProcedimento(IdProcedimento);
-            return new AgendamentoProcedimento(IdAgendamento, IdProcedimento);
+            AgendamentoController.GetAgendamento(AgendamentoId);
+            ProcedimentoControllers.GetProcedimento(ProcedimentoId);
+            return new AgendamentoProcedimento(AgendamentoId, ProcedimentoId);
         }
 
         public static AgendamentoProcedimento UpdateAgendamentoProcedimento(int Id,
-                                                                            int IdAgendamento,
-                                                                            int IdProcedimento)
+                                                                            int AgendamentoId,
+                                                                            int ProcedimentoId)
         {
                 AgendamentoProcedimento agendamentoProcedimento = GetAgendamentoProcedimento(Id);
-                AgendamentoController.GetAgendamento(IdAgendamento);
-                ProcedimentoControllers.GetProcedimento(IdProcedimento);
+                AgendamentoController.GetAgendamento(AgendamentoId);
+                ProcedimentoControllers.GetProcedimento(ProcedimentoId);
                 
-                agendamentoProcedimento.IdAgendamento = IdAgendamento;
-                agendamentoProcedimento.IdProcedimento = IdProcedimento;
+                agendamentoProcedimento.AgendamentoId = AgendamentoId;
+                agendamentoProcedimento.ProcedimentoId = ProcedimentoId;
 
                 return agendamentoProcedimento;
         }
