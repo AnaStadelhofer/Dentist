@@ -4,7 +4,7 @@ using lib;
 
 namespace Telas
 {
-    public class PacienteTela : Form
+    public class AgendamentoTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,9 +16,9 @@ namespace Telas
         Button btnVoltar;
 
         ListView listView;
-        public PacienteTela()
+        public AgendamentoTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PACIENTE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("AGENDAMENTO", 230, 15, 150, 30);
 
             btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
 			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
@@ -36,14 +36,8 @@ namespace Telas
 			listView.View = View.Details;
 			ListViewItem filme1 = new ListViewItem("Kill Bill");
 			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");
-			ListViewItem filme2 = new ListViewItem("Rei Leão");
-			filme2.SubItems.Add("2");
-			filme2.SubItems.Add("1994");
-			ListViewItem filme3 = new ListViewItem("Coringa");
-			filme3.SubItems.Add("1");	
-			filme3.SubItems.Add("2020");		
-			listView.Items.AddRange(new ListViewItem[]{filme1, filme2, filme3});
+			filme1.SubItems.Add("2001");		
+			listView.Items.AddRange(new ListViewItem[]{filme1});
 			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
     		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
 			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
@@ -51,7 +45,6 @@ namespace Telas
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
-
 
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSelect);
@@ -64,7 +57,7 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Paciente";
+            this.Text = "Agendamento";
         }
 
         public void btnVoltarClick(object sender, EventArgs e)

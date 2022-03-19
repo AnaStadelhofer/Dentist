@@ -9,7 +9,6 @@ namespace Telas
         private System.ComponentModel.IContainer components = null;
 
         Label lblUser;
-        Button btnSelect;
         Button btnDelete;
         Button btnUpdate;
         Button btnInsert;
@@ -20,20 +19,17 @@ namespace Telas
         {
             this.lblUser = new Campos.LabelFieldTam("ESPECIALIDADE", 230, 15, 150, 30);
 
-            btnSelect = new Campos.ButtonField("Selecionar", 50, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnDentistaClick);
+            btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
+			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
 
             btnDelete = new Campos.ButtonField("Deletar", 150, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnDelete.Click += new EventHandler(this.btnDeleteClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
-
-            btnVoltar = new Campos.ButtonField("Voltar", 220, 460, 80, 30);
-			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -57,7 +53,6 @@ namespace Telas
 
 
             this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
@@ -73,6 +68,24 @@ namespace Telas
         public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
+        }  
+
+        public void btnDeleteClick(object sender, EventArgs e)
+        {
+            string message = "Voce deseja deletar a especialidade?";
+            string caption = "Confirmar";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Close();
+            } 
+            else
+            {
+                //this.Close(); 
+            }
         }  
 
     }

@@ -4,7 +4,7 @@ using lib;
 
 namespace Telas
 {
-    public class PacienteTela : Form
+    public class SalaTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,9 +16,9 @@ namespace Telas
         Button btnVoltar;
 
         ListView listView;
-        public PacienteTela()
+        public SalaTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PACIENTE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("SALA", 230, 15, 150, 30);
 
             btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
 			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
@@ -27,7 +27,7 @@ namespace Telas
 			btnDelete.Click += new EventHandler(this.btnDeleteClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
@@ -64,13 +64,19 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Paciente";
+            this.Text = "Sala";
         }
 
         public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
         }  
+
+        public void btnUpdateClick(object sender, EventArgs e)
+        {
+            UpdateSala UpdateSalas = new UpdateSala();
+            UpdateSalas.ShowDialog();
+        }
 
         public void btnDeleteClick(object sender, EventArgs e)
         {

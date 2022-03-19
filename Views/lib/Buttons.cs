@@ -22,7 +22,7 @@ namespace lib
             
         }  
 
-        public void btnCancelarClick(object sender, EventArgs e)
+        public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
         }  

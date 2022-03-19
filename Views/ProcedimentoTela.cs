@@ -4,7 +4,7 @@ using lib;
 
 namespace Telas
 {
-    public class PacienteTela : Form
+    public class ProcedimentoTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,9 +16,9 @@ namespace Telas
         Button btnVoltar;
 
         ListView listView;
-        public PacienteTela()
+        public ProcedimentoTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PACIENTE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("PROCEDIMENTO", 190, 15, 150, 30);
 
             btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
 			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
@@ -34,19 +34,13 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem filme1 = new ListViewItem("Kill Bill");
-			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");
-			ListViewItem filme2 = new ListViewItem("Rei Leão");
-			filme2.SubItems.Add("2");
-			filme2.SubItems.Add("1994");
-			ListViewItem filme3 = new ListViewItem("Coringa");
-			filme3.SubItems.Add("1");	
-			filme3.SubItems.Add("2020");		
-			listView.Items.AddRange(new ListViewItem[]{filme1, filme2, filme3});
-			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
-			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
+			ListViewItem Procedimentos = new ListViewItem("1");
+			Procedimentos.SubItems.Add("Arrancar dente");
+			Procedimentos.SubItems.Add("R$200,00");		
+			listView.Items.AddRange(new ListViewItem[]{Procedimentos});
+			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
+    		listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
+			listView.Columns.Add("Preço", -2, HorizontalAlignment.Left);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
@@ -64,7 +58,7 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Paciente";
+            this.Text = "Procedimento";
         }
 
         public void btnVoltarClick(object sender, EventArgs e)

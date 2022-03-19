@@ -4,35 +4,27 @@ using lib;
 
 namespace Telas
 {
-    public class PacienteTela : Form
+    public class MenuPacienteTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
         Label lblUser;
-        Button btnSelect;
-        Button btnDelete;
-        Button btnUpdate;
-        Button btnInsert;
-        Button btnVoltar;
+        Button btnConfirmarConsulta;
+       
+        Button btnSair;
 
         ListView listView;
-        public PacienteTela()
+        public MenuPacienteTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PACIENTE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("Bem vindo, Fulano!", 100, 15, 150, 30);
 
-            btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
-			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
+            btnConfirmarConsulta = new Campos.ButtonField("Confirmar", 20, 250, 100, 30);
+			btnConfirmarConsulta.Click += new EventHandler(this.btnConfirmarConsultaClick);
 
-            btnDelete = new Campos.ButtonField("Deletar", 150, 400, 100, 30);
-			btnDelete.Click += new EventHandler(this.btnDeleteClick);
+            btnSair = new Campos.ButtonField("Sair", 180, 250, 100, 30);
+			btnSair.Click += new EventHandler(this.btnSairClick);
 
-            btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
-
-            btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
-
-            listView = new Campos.FieldListView(50, 50, 400, 320);
+            listView = new Campos.FieldListView(20, 50, 250, 170);
 			listView.View = View.Details;
 			ListViewItem filme1 = new ListViewItem("Kill Bill");
 			filme1.SubItems.Add("3");
@@ -52,29 +44,20 @@ namespace Telas
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
 
-
             this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnConfirmarConsulta);
             this.Controls.Add(this.listView);
+            this.Controls.Add(this.btnSair);
 
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Paciente";
+            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Text = "Menu Paciente";
         }
 
-        public void btnVoltarClick(object sender, EventArgs e)
+        public void btnConfirmarConsultaClick(object sender, EventArgs e)
         {
-            this.Close();
-        }  
-
-        public void btnDeleteClick(object sender, EventArgs e)
-        {
-            string message = "Voce deseja deletar a especialidade?";
+            string message = "Voce deseja confirmar o agendamento?";
             string caption = "Confirmar";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -86,8 +69,13 @@ namespace Telas
             } 
             else
             {
-                //this.Close(); 
+                this.Close(); 
             }
+        }  
+
+        public void btnSairClick(object sender, EventArgs e)
+        {
+            this.Close();
         }  
 
     }

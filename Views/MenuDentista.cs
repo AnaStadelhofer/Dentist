@@ -21,19 +21,19 @@ namespace Telas
             this.lblUser = new Campos.LabelFieldTam("Bem vindo Fulano!", 100, 15, 150, 30);
 
             btnDentista = new Campos.ButtonField("Dentista", 30, 50, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnDentistaClick);
+			btnDentista.Click += new EventHandler(this.btnDentistaClick);
 
             btnSala = new Campos.ButtonField("Sala", 30, 90, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnSala.Click += new EventHandler(this.btnSalaClick);
 
             btnProcedimento = new Campos.ButtonField("Procedimento", 30, 130, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnProcedimento.Click += new EventHandler(this.btnProcedimentoClick);
 
             btnPaciente = new Campos.ButtonField("Paciente", 170, 50, 100, 30);
 			btnPaciente.Click += new EventHandler(this.btnPacienteClick);
 
             btnAgendamento = new Campos.ButtonField("Agendamento", 170, 90, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnAgendamento.Click += new EventHandler(this.btnAgendamentoClick);
 
             btnEspecialidade = new Campos.ButtonField("Especialidade", 170, 130, 100, 30);
 			btnEspecialidade.Click += new EventHandler(this.btnEspecialidadeClick);
@@ -53,7 +53,7 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
-            this.Text = "Menu";
+            this.Text = "Menu Dentista";
         }
 
         public void btnSairClick(object sender, EventArgs e)
@@ -72,6 +72,30 @@ namespace Telas
             EspacialidadeTela EspacialidadeTelas = new EspacialidadeTela();
             EspacialidadeTelas.ShowDialog();
         } 
+
+        public void btnDentistaClick(object sender, EventArgs e)
+        {
+            DentistaTela DentistaTelas = new DentistaTela();
+            DentistaTelas.ShowDialog();
+        }
+
+        public void btnSalaClick(object sender, EventArgs e)
+        {
+            SalaTela SalaTelas = new SalaTela();
+            SalaTelas.ShowDialog();
+        }
+
+        public void btnProcedimentoClick(object sender, EventArgs e)
+        {
+            ProcedimentoTela ProcedimentoTelas = new ProcedimentoTela();
+            ProcedimentoTelas.ShowDialog();
+        }
+
+        public void btnAgendamentoClick(object sender, EventArgs e)
+        {
+            AgendamentoTela AgendamentoTelas = new AgendamentoTela();
+            AgendamentoTelas.ShowDialog();
+        }
 
     }
 }

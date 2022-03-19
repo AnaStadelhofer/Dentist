@@ -4,7 +4,7 @@ using lib;
 
 namespace Telas
 {
-    public class PacienteTela : Form
+    public class DentistaTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,9 +16,9 @@ namespace Telas
         Button btnVoltar;
 
         ListView listView;
-        public PacienteTela()
+        public DentistaTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PACIENTE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("DENTISTA", 230, 15, 150, 30);
 
             btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
 			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
@@ -64,7 +64,7 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Paciente";
+            this.Text = "Dentista";
         }
 
         public void btnVoltarClick(object sender, EventArgs e)
