@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
 
 namespace Telas
 {
@@ -46,13 +47,26 @@ namespace Telas
         }
 
         public void btnLogarClick(object sender, EventArgs e)
-        {
-            MenuDentistaTela MenuDentistaTelas = new MenuDentistaTela();
-            MenuDentistaTelas.ShowDialog(); 
-            //this.Dispose();
-            MenuPacienteTela MenuPacienteTelas = new MenuPacienteTela();
-            MenuPacienteTelas.ShowDialog();
-        }  
+        {              
+            try
+            {
+                Auth.Login(this.txtUser.Text, this.txtPass.Text);
+                if (Auth.Dentista != null) 
+                {
+                    MenuDentistaTela MenuDentistaTelas = new MenuDentistaTela();
+                    MenuDentistaTelas.ShowDialog();
+                }
+                if (Auth.Paciente != null) 
+                {
+                    MenuPacienteTela MenuPacienteTelas = new MenuPacienteTela();
+                    MenuPacienteTelas.ShowDialog();                }
+                Auth.Logout();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
 
         public void btnSairClick(object sender, EventArgs e)
         {

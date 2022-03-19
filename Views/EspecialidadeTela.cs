@@ -9,7 +9,6 @@ namespace Telas
         private System.ComponentModel.IContainer components = null;
 
         Label lblUser;
-        Button btnSelect;
         Button btnDelete;
         Button btnUpdate;
         Button btnInsert;
@@ -20,8 +19,8 @@ namespace Telas
         {
             this.lblUser = new Campos.LabelFieldTam("ESPECIALIDADE", 230, 15, 150, 30);
 
-            btnSelect = new Campos.ButtonField("Selecionar", 50, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnDentistaClick);
+            btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
+			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
 
             btnDelete = new Campos.ButtonField("Deletar", 150, 400, 100, 30);
 			btnDelete.Click += new EventHandler(this.btnDeleteClick);
@@ -31,9 +30,6 @@ namespace Telas
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
-
-            btnVoltar = new Campos.ButtonField("Voltar", 220, 460, 80, 30);
-			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -57,7 +53,6 @@ namespace Telas
 
 
             this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);

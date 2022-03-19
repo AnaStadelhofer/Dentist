@@ -18,13 +18,13 @@ namespace Telas
         ListView listView;
         public ProcedimentoTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("PROCEDIMENTO", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("PROCEDIMENTO", 190, 15, 150, 30);
 
-            btnSelect = new Campos.ButtonField("Selecionar", 50, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnDentistaClick);
+            btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
+			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
 
             btnDelete = new Campos.ButtonField("Deletar", 150, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnDelete.Click += new EventHandler(this.btnDeleteClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
@@ -32,24 +32,15 @@ namespace Telas
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
 
-            btnVoltar = new Campos.ButtonField("Voltar", 220, 460, 80, 30);
-			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
-
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem filme1 = new ListViewItem("Kill Bill");
-			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");
-			ListViewItem filme2 = new ListViewItem("Rei Leão");
-			filme2.SubItems.Add("2");
-			filme2.SubItems.Add("1994");
-			ListViewItem filme3 = new ListViewItem("Coringa");
-			filme3.SubItems.Add("1");	
-			filme3.SubItems.Add("2020");		
-			listView.Items.AddRange(new ListViewItem[]{filme1, filme2, filme3});
-			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
-			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
+			ListViewItem Procedimentos = new ListViewItem("1");
+			Procedimentos.SubItems.Add("Arrancar dente");
+			Procedimentos.SubItems.Add("R$200,00");		
+			listView.Items.AddRange(new ListViewItem[]{Procedimentos});
+			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
+    		listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
+			listView.Columns.Add("Preço", -2, HorizontalAlignment.Left);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
@@ -73,6 +64,24 @@ namespace Telas
         public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
+        }  
+
+        public void btnDeleteClick(object sender, EventArgs e)
+        {
+            string message = "Voce deseja deletar a especialidade?";
+            string caption = "Confirmar";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Close();
+            } 
+            else
+            {
+                //this.Close(); 
+            }
         }  
 
     }
