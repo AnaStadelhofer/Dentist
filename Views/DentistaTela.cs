@@ -4,7 +4,7 @@ using lib;
 
 namespace Telas
 {
-    public class EspacialidadeTela : Form
+    public class DentistaTela : Form
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,15 +16,15 @@ namespace Telas
         Button btnVoltar;
 
         ListView listView;
-        public EspacialidadeTela()
+        public DentistaTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("ESPECIALIDADE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("DENTISTA", 230, 15, 150, 30);
 
             btnSelect = new Campos.ButtonField("Selecionar", 50, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnDentistaClick);
 
             btnDelete = new Campos.ButtonField("Deletar", 150, 400, 100, 30);
-			btnDelete.Click += new EventHandler(this.btnDeleteClick);
+			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
@@ -67,30 +67,12 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Text = "Especialidade";
+            this.Text = "Dentista";
         }
 
         public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
-        }  
-
-        public void btnDeleteClick(object sender, EventArgs e)
-        {
-            string message = "Voce deseja deletar a especialidade?";
-            string caption = "Confirmar";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
-            {
-                this.Close();
-            } 
-            else
-            {
-                //this.Close(); 
-            }
         }  
 
     }

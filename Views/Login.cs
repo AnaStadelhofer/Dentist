@@ -50,6 +50,8 @@ namespace Telas
             MenuDentistaTela MenuDentistaTelas = new MenuDentistaTela();
             MenuDentistaTelas.ShowDialog(); 
             //this.Dispose();
+            MenuPacienteTela MenuPacienteTelas = new MenuPacienteTela();
+            MenuPacienteTelas.ShowDialog();
         }  
 
         public void btnSairClick(object sender, EventArgs e)
