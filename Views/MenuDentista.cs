@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
 
 namespace Telas
 {
@@ -18,7 +19,7 @@ namespace Telas
         Button btnSair;
         public MenuDentistaTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("Bem vindo Fulano!", 100, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam($"Bem vindo(a), {Auth.Dentista.Nome}!", 75, 15, 150, 30);
 
             btnDentista = new Campos.ButtonField("Dentista", 30, 50, 100, 30);
 			btnDentista.Click += new EventHandler(this.btnDentistaClick);
@@ -99,3 +100,4 @@ namespace Telas
 
     }
 }
+

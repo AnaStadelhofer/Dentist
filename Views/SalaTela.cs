@@ -30,7 +30,7 @@ namespace Telas
 			btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnInsert.Click += new EventHandler(this.btnInsertClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -78,9 +78,15 @@ namespace Telas
             UpdateSalas.ShowDialog();
         }
 
+        public void btnInsertClick(object sender, EventArgs e)
+        {
+            InsertSalaTela InsertSalaTelas = new InsertSalaTela();
+            InsertSalaTelas.ShowDialog();
+        }
+
         public void btnDeleteClick(object sender, EventArgs e)
         {
-            string message = "Voce deseja deletar a especialidade?";
+            string message = "Voce deseja deletar a sala?";
             string caption = "Confirmar";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -88,13 +94,8 @@ namespace Telas
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Close();
-            } 
-            else
-            {
-                //this.Close(); 
+                MessageBox.Show("Sala excluida com sucesso!", "Exclusão");
             }
         }  
-
     }
 }

@@ -59,7 +59,8 @@ namespace Telas
                 if (Auth.Paciente != null) 
                 {
                     MenuPacienteTela MenuPacienteTelas = new MenuPacienteTela();
-                    MenuPacienteTelas.ShowDialog();                }
+                    MenuPacienteTelas.ShowDialog();                
+                }
                 Auth.Logout();
             }
             catch (Exception err)
