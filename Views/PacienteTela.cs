@@ -27,10 +27,10 @@ namespace Telas
 			btnDelete.Click += new EventHandler(this.btnDeleteClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnInsert.Click += new EventHandler(this.btnInsertClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -70,7 +70,18 @@ namespace Telas
         public void btnVoltarClick(object sender, EventArgs e)
         {
             this.Close();
-        }  
+        }
+          
+        public void btnUpdateClick(object sender, EventArgs e)
+        {
+            UpdatePacienteTela UpdatePacienteTelas = new UpdatePacienteTela();
+            UpdatePacienteTelas.ShowDialog();
+        } 
+        public void btnInsertClick(object sender, EventArgs e)
+        {
+            InsertPacienteTela InsertPacienteTelas = new InsertPacienteTela();
+            InsertPacienteTelas.ShowDialog();
+        }
 
         public void btnDeleteClick(object sender, EventArgs e)
         {
@@ -82,13 +93,8 @@ namespace Telas
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Close();
-            } 
-            else
-            {
-                //this.Close(); 
+                MessageBox.Show("Paciente excluido com sucesso!", "Exclusão");
             }
         }  
-
     }
 }

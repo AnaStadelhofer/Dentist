@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
 
 namespace Telas
 {
@@ -16,7 +17,7 @@ namespace Telas
         ListView listView;
         public MenuPacienteTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("Bem vindo, Fulano!", 100, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam($"Bem vindo(a), {Auth.Paciente.Nome}!", 100, 15, 150, 30);
 
             btnConfirmarConsulta = new Campos.ButtonField("Confirmar", 20, 250, 100, 30);
 			btnConfirmarConsulta.Click += new EventHandler(this.btnConfirmarConsultaClick);
@@ -65,11 +66,7 @@ namespace Telas
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Close();
-            } 
-            else
-            {
-                this.Close(); 
+                MessageBox.Show("Agendamento confirmado com sucesso!", "Confirmado");
             }
         }  
 

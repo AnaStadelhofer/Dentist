@@ -7,13 +7,11 @@ namespace Telas
     public class EspacialidadeTela : Form
     {
         private System.ComponentModel.IContainer components = null;
-
         Label lblUser;
         Button btnDelete;
         Button btnUpdate;
         Button btnInsert;
         Button btnVoltar;
-
         ListView listView;
         public EspacialidadeTela()
         {
@@ -26,26 +24,20 @@ namespace Telas
 			btnDelete.Click += new EventHandler(this.btnDeleteClick);
 
             btnUpdate = new Campos.ButtonField("Atualizar", 250, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem filme1 = new ListViewItem("Kill Bill");
-			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");
-			ListViewItem filme2 = new ListViewItem("Rei Leão");
-			filme2.SubItems.Add("2");
-			filme2.SubItems.Add("1994");
-			ListViewItem filme3 = new ListViewItem("Coringa");
-			filme3.SubItems.Add("1");	
-			filme3.SubItems.Add("2020");		
-			listView.Items.AddRange(new ListViewItem[]{filme1, filme2, filme3});
-			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
-			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
+			ListViewItem EspecialidadeUm = new ListViewItem("1");
+			EspecialidadeUm.SubItems.Add("Limpar sala e dente do paciente");
+			EspecialidadeUm.SubItems.Add("Limpar sala");
+			listView.Items.AddRange(new ListViewItem[]{EspecialidadeUm});
+			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
+    		listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
+			listView.Columns.Add("Tarefas", -2, HorizontalAlignment.Left);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
@@ -70,6 +62,12 @@ namespace Telas
             this.Close();
         }  
 
+        public void btnUpdateClick(object sender, EventArgs e)
+        {
+            UpdateEspecialidadeTela UpdateEspecialidadeTelas = new UpdateEspecialidadeTela();
+            UpdateEspecialidadeTelas.ShowDialog();
+        }
+
         public void btnDeleteClick(object sender, EventArgs e)
         {
             string message = "Voce deseja deletar a especialidade?";
@@ -80,12 +78,8 @@ namespace Telas
             result = MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                this.Close();
+                MessageBox.Show("Especialidade excluida com sucesso!", "Exclusão");
             } 
-            else
-            {
-                //this.Close(); 
-            }
         }  
 
     }
