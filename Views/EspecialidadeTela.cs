@@ -15,7 +15,7 @@ namespace Telas
         ListView listView;
         public EspacialidadeTela()
         {
-            this.lblUser = new Campos.LabelFieldTam("ESPECIALIDADE", 230, 15, 150, 30);
+            this.lblUser = new Campos.LabelFieldTam("ESPECIALIDADE", 210, 15, 150, 30);
 
             btnVoltar = new Campos.ButtonField("Voltar", 50, 400, 100, 30);
 			btnVoltar.Click += new EventHandler(this.btnVoltarClick);
@@ -27,7 +27,7 @@ namespace Telas
 			btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnInsert.Click += new EventHandler(this.btnInsertClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -66,6 +66,12 @@ namespace Telas
         {
             UpdateEspecialidadeTela UpdateEspecialidadeTelas = new UpdateEspecialidadeTela();
             UpdateEspecialidadeTelas.ShowDialog();
+        }
+
+        public void btnInsertClick(object sender, EventArgs e)
+        {
+            InsertEspecialidadeTela InsertEspecialidadeTelas = new InsertEspecialidadeTela();
+            InsertEspecialidadeTelas.ShowDialog();
         }
 
         public void btnDeleteClick(object sender, EventArgs e)

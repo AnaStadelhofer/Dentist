@@ -34,19 +34,13 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem filme1 = new ListViewItem("Kill Bill");
-			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");
-			ListViewItem filme2 = new ListViewItem("Rei Leão");
-			filme2.SubItems.Add("2");
-			filme2.SubItems.Add("1994");
-			ListViewItem filme3 = new ListViewItem("Coringa");
-			filme3.SubItems.Add("1");	
-			filme3.SubItems.Add("2020");		
-			listView.Items.AddRange(new ListViewItem[]{filme1, filme2, filme3});
-			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
-			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
+			ListViewItem Equip1 = new ListViewItem("1");
+			Equip1.SubItems.Add("A202");
+            Equip1.SubItems.Add("Tesoura");
+			listView.Items.AddRange(new ListViewItem[]{Equip1});
+			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
+    		listView.Columns.Add("Número", -2, HorizontalAlignment.Left);
+			listView.Columns.Add("Equipamento", -2, HorizontalAlignment.Left);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
