@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Controllers;
 
 namespace Telas
 {
@@ -52,6 +53,7 @@ namespace Telas
 
         public void btnSalvarClick(object sender, EventArgs e)
         {
+            SalaController.IncluirSala(this.txtNumSala.Text, this.txtEquipSala.Text);
             String Message = "Sala atualizada com sucesso!";
             String Title = "Operação feita!";
             MessageBox.Show(Message, Title);
