@@ -1,6 +1,9 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
+using System.Collections.Generic;
 
 namespace Telas
 {
@@ -34,13 +37,16 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem PacienteUm = new ListViewItem("1");
-			PacienteUm.SubItems.Add("1Amelia");	
-			PacienteUm.SubItems.Add("123.123.123-23");
-            PacienteUm.SubItems.Add("(47) 9 1234-1234");
-            PacienteUm.SubItems.Add("amelia.silva@paciente.com");
-            PacienteUm.SubItems.Add("10/10/1998");		
-			listView.Items.AddRange(new ListViewItem[]{PacienteUm});
+            foreach (Paciente item in PacienteController.VisualizarPaciente())
+            {
+                ListViewItem list = new ListViewItem(item.Id + "");
+                list.SubItems.Add(item.Nome);	
+                list.SubItems.Add(item.Cpf);
+                list.SubItems.Add(item.Fone);
+                list.SubItems.Add(item.Email);
+                list.SubItems.Add(item.DataNascimento + "");
+                listView.Items.AddRange(new ListViewItem[]{list});
+            }
 			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
     		listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
 			listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);

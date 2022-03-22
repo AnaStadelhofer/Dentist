@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -34,15 +36,18 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem Dentista1 = new ListViewItem("1");
-			Dentista1.SubItems.Add("José");
-			Dentista1.SubItems.Add("123-123-123-12");	
-            Dentista1.SubItems.Add("(47) 9 1234-1234");	
-            Dentista1.SubItems.Add("jose.carmo@dentista.com");	
-            Dentista1.SubItems.Add("12345/sc");		
-            Dentista1.SubItems.Add("2 k");	
-            Dentista1.SubItems.Add("1");	
-			listView.Items.AddRange(new ListViewItem[]{Dentista1});
+			foreach(Dentista item in DentistaController.VisualizarDentista())
+            {
+                ListViewItem list = new ListViewItem(item.Id + "");
+                list.SubItems.Add(item.Nome);	
+                list.SubItems.Add(item.Cpf + "");
+                list.SubItems.Add(item.Fone);
+                list.SubItems.Add(item.Email);
+                list.SubItems.Add(item.Registro);
+                list.SubItems.Add(item.Salario + "");
+                list.SubItems.Add(item.EspecialidadeId + "");
+                listView.Items.AddRange(new ListViewItem[]{list});
+            }
 			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
     		listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
 			listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
