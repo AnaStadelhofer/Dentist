@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -34,10 +36,13 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem Equip1 = new ListViewItem("1");
-			Equip1.SubItems.Add("A202");
-            Equip1.SubItems.Add("Tesoura");
-			listView.Items.AddRange(new ListViewItem[]{Equip1});
+			foreach(Sala item in SalaController.VisualizarSalas())
+            {
+                ListViewItem list = new ListViewItem(item.Id + "");
+                list.SubItems.Add(item.Numero);	
+                list.SubItems.Add(item.Equipamentos);
+                listView.Items.AddRange(new ListViewItem[]{list});
+            }
 			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
     		listView.Columns.Add("Número", -2, HorizontalAlignment.Left);
 			listView.Columns.Add("Equipamento", -2, HorizontalAlignment.Left);

@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -34,10 +36,13 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem Procedimentos = new ListViewItem("1");
-			Procedimentos.SubItems.Add("Arrancar dente");
-			Procedimentos.SubItems.Add("R$200,00");		
-			listView.Items.AddRange(new ListViewItem[]{Procedimentos});
+			foreach(Procedimento item in ProcedimentoControllers.VisualizarProcedimento())
+            {
+                ListViewItem list = new ListViewItem(item.Id + "");
+                list.SubItems.Add(item.Descricao);	
+                list.SubItems.Add(item.Preco + "");
+                listView.Items.AddRange(new ListViewItem[]{list});
+            }
 			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
     		listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
 			listView.Columns.Add("Preço", -2, HorizontalAlignment.Left);
