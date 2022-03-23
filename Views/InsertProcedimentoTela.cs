@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -47,7 +49,7 @@ namespace Telas
 
         public void btnVoltarClick(object sender, EventArgs e)
         {
-            this.Close();
+            //ProcedimentoControllers.InsertProcedimento(this.txtDescricaoProcedimento.Text, this.txtPrecoProcedimento.Double);
         }  
 
         public void btnSalvarClick(object sender, EventArgs e)

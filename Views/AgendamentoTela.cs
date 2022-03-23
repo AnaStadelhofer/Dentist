@@ -30,7 +30,7 @@ namespace Telas
 			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
 
             btnInsert = new Campos.ButtonField("Inserir", 350, 400, 100, 30);
-			//btnConfirmar.Click += new EventHandler(this.btnLogarClick);
+			btnInsert.Click += new EventHandler(this.btnInsertClick);
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
@@ -64,6 +64,12 @@ namespace Telas
         {
             this.Close();
         }  
+
+        public void btnInsertClick(object sender, EventArgs e)
+        {
+            InsertAgendamentoTela InsertAgendamentoTelas = new InsertAgendamentoTela();
+            InsertAgendamentoTelas.ShowDialog();
+        }
 
         public void btnDeleteClick(object sender, EventArgs e)
         {

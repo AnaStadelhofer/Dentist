@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
 using Controllers;
 
 namespace Telas
@@ -48,7 +49,7 @@ namespace Telas
 
         public void btnVoltarClick(object sender, EventArgs e)
         {
-            this.Close();
+            SalaController.IncluirSala(this.txtNumSala.Text, this.txtEquipSala.Text );
         }  
 
         public void btnSalvarClick(object sender, EventArgs e)
