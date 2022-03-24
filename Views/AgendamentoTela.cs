@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -34,13 +36,22 @@ namespace Telas
 
             listView = new Campos.FieldListView(50, 50, 400, 320);
 			listView.View = View.Details;
-			ListViewItem filme1 = new ListViewItem("Kill Bill");
-			filme1.SubItems.Add("3");
-			filme1.SubItems.Add("2001");		
-			listView.Items.AddRange(new ListViewItem[]{filme1});
-			listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		listView.Columns.Add("Estoque", -2, HorizontalAlignment.Left);
-			listView.Columns.Add("Ano", -2, HorizontalAlignment.Left);
+			foreach (Agendamento item in AgendamentoController.VisualizarAgendamentos())
+            {
+                ListViewItem list = new ListViewItem(item.Id + "");
+                list.SubItems.Add(item.Paciente.Nome);	
+                list.SubItems.Add(item.Dentista.Nome);
+                list.SubItems.Add(item.Sala.Numero);
+                list.SubItems.Add(item.Data + "");
+                list.SubItems.Add(item.Confirmado + "");
+                listView.Items.AddRange(new ListViewItem[]{list});
+            }
+			listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Paciente", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Dentista", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Sala", -2, HorizontalAlignment.Left);
+    		listView.Columns.Add("Data", -2, HorizontalAlignment.Left);
+			listView.Columns.Add("Confirmado", -2, HorizontalAlignment.Left);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;

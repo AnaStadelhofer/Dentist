@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Controllers;
 
 namespace Telas
 {
@@ -113,6 +114,14 @@ namespace Telas
 
         public void btnSalvarClick(object sender, EventArgs e)
         {
+            try
+            {
+                DentistaController.InserirDentista(this.txtNome.Text, this.txtCPF.Text, this.txtTelefone.Text, this.txtEmail.Text, this.txtSenha.Text, this.txtRegistro.Text, Convert.ToDouble(this.txtSalario.Text), Convert.ToInt32(this.txtEspecialidadeId.Text));
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Preencha todos os campos!", "Erro");
+            }
             String Message = "Dentista cadastrado com sucesso!";
             String Title = "Operação feita!";
             MessageBox.Show(Message, Title);

@@ -2,13 +2,13 @@ using System;
 using System.Windows.Forms;
 using lib;
 using Models;
+using System.Drawing;
 
 namespace Telas
 {
     public class Login : Form
     {
         private System.ComponentModel.IContainer components = null;
-
         Label lblUser;
         Label lblPassword;
         TextBox txtUser;
@@ -18,6 +18,7 @@ namespace Telas
         Button btnSair;
         public Login()
         {
+            this.BackColor = Color.FromArgb(255, 232, 232);
             this.lblUser = new Campos.LabelField("Usuário", 120, 30);
 
             this.txtUser = new Campos.TextBoxField(60, 60, 180, 20);
@@ -28,9 +29,11 @@ namespace Telas
             //this.txtPass.PasswordChar = "*";
 
             btnLogar = new Campos.ButtonField("Logar", 100, 180, 100, 30);
+            this.btnLogar.BackColor = Color.White;
 			btnLogar.Click += new EventHandler(this.btnLogarClick);
 
 			btnSair = new Campos.ButtonField("Sair", 100, 220, 100, 30);
+            this.btnSair.BackColor = Color.White;
 			btnSair.Click += new EventHandler(this.btnSairClick);
 
             this.Controls.Add(this.lblUser);
@@ -54,7 +57,7 @@ namespace Telas
                 if (Auth.Dentista != null) 
                 {
                     MenuDentistaTela MenuDentistaTelas = new MenuDentistaTela();
-                    MenuDentistaTelas.ShowDialog();
+                    MenuDentistaTelas.Show();    
                 }
                 if (Auth.Paciente != null) 
                 {
@@ -65,10 +68,9 @@ namespace Telas
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Usuário ou senha inválido", "Erro");
             }
         }
-
         public void btnSairClick(object sender, EventArgs e)
         {
             this.Close();
