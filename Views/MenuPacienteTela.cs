@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using lib;
 using Models;
 using Controllers;
+using System.Drawing;
 
 namespace Telas
 {
@@ -18,6 +19,7 @@ namespace Telas
         ListView listView;
         public MenuPacienteTela()
         {
+            this.BackColor = Color.FromArgb(211, 216, 249);
             this.lblUser = new Campos.LabelFieldTam($"Bem vindo(a), {Auth.Paciente.Nome}!", 100, 15, 150, 30);
 
             btnConfirmarConsulta = new Campos.ButtonField("Confirmar", 20, 250, 100, 30);
