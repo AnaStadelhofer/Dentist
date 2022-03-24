@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using lib;
+using Controllers;
 
 namespace Telas
 {
@@ -10,7 +11,7 @@ namespace Telas
         Label lblUser;
         Button btnVoltar;
         Button btnSalvar;
-        Label IdPaciente;
+        Label IdDentista;
         Label Nome;
         Label CPF;
         Label Telefone;
@@ -20,7 +21,7 @@ namespace Telas
         Label Registro;
         Label Salario;
         Label EspecialidadeId;
-        TextBox txtIdPaciente;
+        TextBox txtIdDentista;
         TextBox txtNome;
         TextBox txtCPF;
         TextBox txtTelefone;
@@ -35,8 +36,8 @@ namespace Telas
         {
             this.lblUser = new Campos.LabelFieldTam("Atualziar Dentista", 200, 15, 150, 30);
 
-            this.IdPaciente = new Campos.LabelFieldTam("Id do Dentista:", 50, 40, 150, 30);
-            this.txtIdPaciente = new Campos.TextBoxField(50, 70, 180, 20);
+            this.IdDentista = new Campos.LabelFieldTam("Id do Dentista:", 50, 40, 150, 30);
+            this.txtIdDentista = new Campos.TextBoxField(50, 70, 180, 20);
 
             this.Nome = new Campos.LabelField("Nome:", 50, 100);
             this.txtNome = new Campos.TextBoxField(50, 130, 180, 20);
@@ -85,13 +86,13 @@ namespace Telas
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.IdPaciente);
+            this.Controls.Add(this.IdDentista);
             this.Controls.Add(this.Nome);
             this.Controls.Add(this.CPF);
             this.Controls.Add(this.Telefone);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Senha);
-            this.Controls.Add(this.txtIdPaciente);
+            this.Controls.Add(this.txtIdDentista);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtTelefone);
@@ -118,6 +119,7 @@ namespace Telas
 
         public void btnSalvarClick(object sender, EventArgs e)
         {
+            DentistaController.AlterarDentista(Convert.ToInt32(this.IdDentista.Text), this.txtNome.Text, this.txtCPF.Text, this.txtTelefone.Text, this.txtEmail.Text, this.txtSenha.Text, this.txtRegistro.Text, Convert.ToDouble(this.txtSalario.Text), Convert.ToInt32(this.txtEspecialidadeId.Text));
             String Message = "Dentista atualizado com sucesso!";
             String Title = "Operação feita!";
             MessageBox.Show(Message, Title);
