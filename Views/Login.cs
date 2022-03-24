@@ -29,11 +29,9 @@ namespace Telas
             //this.txtPass.PasswordChar = "*";
 
             btnLogar = new Campos.ButtonField("Logar", 100, 180, 100, 30);
-            this.btnLogar.BackColor = Color.White;
 			btnLogar.Click += new EventHandler(this.btnLogarClick);
 
 			btnSair = new Campos.ButtonField("Sair", 100, 220, 100, 30);
-            this.btnSair.BackColor = Color.White;
 			btnSair.Click += new EventHandler(this.btnSairClick);
 
             this.Controls.Add(this.lblUser);

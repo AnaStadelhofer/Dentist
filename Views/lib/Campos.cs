@@ -42,6 +42,7 @@ namespace lib
                 this.Text = Text;
                 this.Location = new Point(x, y);
                 this.Size = new Size(Z, W);
+                this.BackColor = Color.White;
             }
         }
 
